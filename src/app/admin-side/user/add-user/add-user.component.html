@@ -13,7 +13,13 @@
                       <label class="col-form-label">First Name</label>
                       <input type="text" class="form-control" formControlName="firstName" placeholder="evan" autofocus>
                       <span class="text-danger mb-0" *ngIf="firstName.invalid &&  (firstName.touched || formValid)">
-                        Please Enter FirstName
+                        Please Enter First Name
+                      </span>
+                      <br>
+                      <label class="col-form-label">Last Name</label>
+                      <input type="text" class="form-control" formControlName="lastName" placeholder="jhones" autofocus>
+                      <span class="text-danger mb-0" *ngIf="lastName.invalid &&  (lastName.touched || formValid)">
+                        Please Enter Last Name
                       </span>
                     </div>
                    
@@ -26,6 +32,21 @@
                         </span>
                         <span *ngIf="emailAddress.hasError('email')">
                           Please Enter Valid EmailAddress
+                        </span>
+                      </span>
+                    </div>
+                    <div class="form-group">
+                      <label class="col-form-label">Phone Number</label>
+                      <input type="text" class="form-control" formControlName="phoneNumber" placeholder="9999999999">
+                      <span class="text-danger" *ngIf="phoneNumber.invalid &&  (phoneNumber.touched || formValid)">
+                        <span *ngIf="phoneNumber.errors?.['required']">
+                          Please Enter PhoneNumber
+                        </span>
+                        <span *ngIf="phoneNumber.errors?.['minLength']">
+                          PhoneNumber should be of 10 digits.
+                        </span>
+                        <span *ngIf="phoneNumber.errors?.['maxLength']">
+                          PhoneNumber should be of 10 digits.
                         </span>
                       </span>
                     </div>
